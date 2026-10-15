@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14213d">
+  <meta name="description" content="Presentación interactiva de Estrategia Empresarial, sesión 9: evaluación externa y análisis competitivo.">
+  <title>Estrategia Empresarial · S9</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio"><span class="brand-mark">EE</span><span><b>Estrategia Empresarial</b><small>ADM0406 · Grupo 12 · Sesión 9</small></span></a>
+      <div class="top-actions">
+        <span class="unit-label">UNIDAD IV</span>
+        <div id="breakTimer" class="break-timer" aria-live="polite"><span class="timer-dot"></span><span id="timerLabel">Pausa de clase</span><strong id="timerValue">--:--</strong></div>
+        <button id="outlineButton" class="icon-button" type="button" aria-label="Abrir índice" title="Índice">☷</button>
+        <button id="notesButton" class="icon-button" type="button" aria-label="Mostrar notas" title="Notas del docente">▤</button>
+        <button id="sourcesButton" class="icon-button" type="button" aria-label="Mostrar fuentes" title="Fuentes">ⓘ</button>
+        <button id="fullscreenButton" class="icon-button" type="button" aria-label="Pantalla completa" title="Pantalla completa">⛶</button>
+      </div>
+    </header>
+
+    <main class="stage" id="stage" aria-live="polite">
+      <article id="slide" class="slide" tabindex="-1"></article>
+    </main>
+
+    <footer class="controls">
+      <button id="prevButton" class="nav-button" type="button" aria-label="Diapositiva anterior">← <span>Anterior</span></button>
+      <div class="progress-wrap"><div class="progress-meta"><span id="slideLabel">01 / 30</span><span id="moduleLabel">Inicio</span></div><div class="progress-track"><span id="progressBar"></span></div></div>
+      <button id="nextButton" class="nav-button primary" type="button" aria-label="Diapositiva siguiente"><span>Siguiente</span> →</button>
+    </footer>
+  </div>
+
+  <dialog id="outlineDialog" class="drawer" aria-labelledby="outlineTitle"><div class="dialog-head"><div><p class="eyebrow">RECORRIDO</p><h2 id="outlineTitle">Índice de la sesión</h2></div><button class="icon-button" data-close-dialog aria-label="Cerrar">×</button></div><nav id="outlineList" class="outline-list"></nav></dialog>
+  <dialog id="notesDialog" class="notes-dialog" aria-labelledby="notesTitle"><div class="dialog-head"><div><p class="eyebrow">APOYO DOCENTE</p><h2 id="notesTitle">Notas para facilitar</h2></div><button class="icon-button" data-close-dialog aria-label="Cerrar">×</button></div><div id="notesContent" class="notes-content"></div></dialog>
+  <dialog id="sourcesDialog" class="notes-dialog" aria-labelledby="sourcesTitle"><div class="dialog-head"><div><p class="eyebrow">REFERENCIAS</p><h2 id="sourcesTitle">Fuentes de la sesión</h2></div><button class="icon-button" data-close-dialog aria-label="Cerrar">×</button></div><div class="notes-content"><ul><li>Material principal: presentación de la Sesión 9, “Evaluación externa y análisis competitivo”, ADM0406, Grupo 12, Universidad Americana, 15 de octubre de 2026.</li><li>Sílabo de Estrategia Empresarial, II semestre 2026, semana 9.</li><li>Porter, M. E. (2008). “The Five Competitive Forces That Shape Strategy”. <a href="https://hbr.org/2008/01/the-five-competitive-forces-that-shape-strategy" target="_blank" rel="noopener noreferrer">Harvard Business Review</a>.</li><li>Virginia Tech Publishing. “Evaluating the External Environment”. <a href="https://pressbooks.lib.vt.edu/strategicmanagement/part/chapter-3-evaluating-the-external-environment/" target="_blank" rel="noopener noreferrer">Strategic Management</a>.</li></ul><p style="margin-top:18px">Los casos y señales etiquetados como didácticos son ficticios y no describen resultados reales de mercado.</p></div></dialog>
+  <dialog id="breakDialog" class="break-dialog" aria-labelledby="breakTitle"><div class="break-symbol" aria-hidden="true">☕</div><p class="eyebrow">PAUSA DE CLASE</p><h2 id="breakTitle">Son las 7:00 p. m.</h2><p>Hagamos una pausa breve. Al cerrar este aviso, la sesión continúa en el mismo punto.</p><button id="dismissBreak" class="button primary" type="button">Continuar la sesión</button></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
