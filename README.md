@@ -10,7 +10,7 @@ Es un sitio estático, sin dependencias ni inicio de sesión. Abrí `index.html`
 
 - 45 diapositivas en seis bloques académicos, con navegación, índice, pantalla completa y notas de facilitación.
 - Botón “Reiniciar” con confirmación para volver al inicio y limpiar respuestas, juegos y selecciones de la sesión.
-- Cinco juegos didácticos: ahorcado, completar oraciones, rompecabezas de Porter, ordenar etapas y verdadero o falso. Cada actividad aparece después de explicar los conceptos relacionados.
+- Cinco juegos didácticos: ahorcado, completar oraciones, clasificación guiada de las cinco fuerzas con decisiones, ordenar etapas y verdadero o falso. Cada actividad aparece después de explicar los conceptos relacionados.
 - Elementos de enseñanza interactivos: tarjetas de explicación progresiva, explorador PESTEL, diagrama seleccionable de Porter, contraste entre oportunidad y amenaza, matriz editable por pasos y descarga CSV.
 - Temporizador diario hasta las 7:00 p. m. en `America/Managua`, independiente de la navegación y las actividades.
 - Diseño visual renovado con acentos azul, turquesa, violeta y ámbar, adaptable a proyección 16:9, pantalla pequeña y controles táctiles.
