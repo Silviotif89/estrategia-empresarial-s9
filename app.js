@@ -221,7 +221,7 @@
   }
   function gameMatch(g,st) {
     const forces=g.pairs.map(p=>p[0]), defs=[...g.pairs.map(p=>p[1])].sort((a,b)=>a.localeCompare(b));
-    return `<p class="game-prompt">Elegí una fuerza y luego su definición.</p><div class="classify-row" style="grid-template-columns:1fr 1fr"><p>Fuerza competitiva</p><p>Pregunta asociada</p></div>${forces.map((force,i)=>`<div class="classify-row" style="grid-template-columns:1fr 1.5fr"><button type="button" class="mini-button ${st.selected[0]===force?'selected':''} ${st.answered? 'correct':''}" data-force="${esc(force)}">${esc(force)}</button><select aria-label="Definición para ${esc(force)}" data-match-select="${i}" ${st.answered?'disabled':''}><option value="">Seleccioná la pregunta…</option>${defs.map(def=>`<option ${st.selected[i+1]===def?'selected':''}>${esc(def)}</option>`).join('')}</select></div>`).join('')}<div class="feedback ${st.answered?'good':''}">${st.feedback||'Relacioná las cinco fuerzas con su pregunta.'}</div><div class="game-actions">${!st.answered?actionButton('checkMatch','Revisar parejas','button primary'):actionButton('next','Reintentar relaciones','button primary')}<span class="score-line">Aciertos: ${st.points}</span></div>`;
+    return `<p class="game-prompt">Elegí una fuerza y luego su definición.</p><div class="classify-row" style="grid-template-columns:1fr 1fr"><p>Fuerza competitiva</p><p>Pregunta asociada</p></div>${forces.map((force,i)=>`<div class="classify-row" style="grid-template-columns:1fr 1.5fr"><strong>${esc(force)}</strong><select aria-label="Definición para ${esc(force)}" data-match-select="${i}" ${st.answered?'disabled':''}><option value="">Seleccioná la pregunta…</option>${defs.map(def=>`<option ${st.selected[i+1]===def?'selected':''}>${esc(def)}</option>`).join('')}</select></div>`).join('')}<div class="feedback ${st.answered?'good':''}">${st.feedback||'Relacioná las cinco fuerzas con su pregunta.'}</div><div class="game-actions">${!st.answered?actionButton('checkMatch','Revisar parejas','button primary'):actionButton('reset','Reintentar relaciones','button primary')}<span class="score-line">Aciertos: ${st.points}</span></div>`;
   }
   function gameOrder(g,st) {
     const order=st.order||g.items.map((_,i)=>i);
@@ -264,7 +264,7 @@
     root.querySelectorAll('[data-move]').forEach(btn=>btn.addEventListener('click',()=>moveOrder(id,Number(btn.dataset.move),Number(btn.dataset.dir))));
     root.querySelectorAll('[data-sim]').forEach(btn=>btn.addEventListener('click',()=>answerSimulator(id,Number(btn.dataset.sim))));
     root.querySelectorAll('[data-matrix]').forEach(control=>control.addEventListener('input',()=>updateMatrixValue(id,control)));
-    root.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click',()=>gameAction(id,btn.dataset.action)));
+    slideEl.querySelectorAll('[data-action]').forEach(btn=>btn.addEventListener('click',()=>gameAction(id,btn.dataset.action)));
   }
   function answerChoice(id,choice) {
     const g=games[id],st=freshState(id),q=g.questions[st.round%g.questions.length],correct=choice===(g.type==='tf'?(q.answer?0:1):q.answer);
