@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const colors = { PESTEL: ['#2563eb', '#7c3aed', '#06b6d4', '#10b981', '#f97316', '#ef4444'] };
+  const colors = { PESTEL: ['#2864dc', '#7654d6', '#0d9488', '#149b78', '#d97706', '#df5e57'] };
   const pestel = [
     ['P', 'Político', 'Decisiones públicas, prioridades y estabilidad institucional.'],
     ['E', 'Económico', 'Actividad, precios, ingresos, crédito y costos.'],
@@ -90,7 +90,7 @@
   const lessonState = new Map();
   const $ = (selector, root=document) => root.querySelector(selector);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-  const colorList = ['#2563eb','#7c3aed','#06b6d4','#10b981','#f97316','#e11d48'];
+  const colorList = ['#2864dc','#7654d6','#0d9488','#149b78','#d97706','#df5e57'];
 
   function render() {
     const slide = slides[index];
@@ -304,6 +304,14 @@
   function buildOutline(){const nav=$('#outlineList');nav.innerHTML=slides.map((s,i)=>`<button type="button" class="outline-entry" data-slide="${i}"><b>${String(i+1).padStart(2,'0')}</b><span>${esc(s.title||games[s.game]?.title||'Actividad')}</span><small>${esc(s.section)}</small></button>`).join('');nav.querySelectorAll('[data-slide]').forEach(btn=>btn.addEventListener('click',()=>{index=Number(btn.dataset.slide);$('#outlineDialog').close();render()}));}
   function showToast(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2400)}
   function next(delta){const n=index+delta;if(n>=0&&n<slides.length){index=n;render()}}
+  function restartSession(){
+    index=0;gameState.clear();lessonState.clear();breakDismissedInMemory=false;
+    try{sessionStorage.removeItem('s9-break-dismissed')}catch{}
+    document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());
+    render();updateTimer();showToast('Sesión reiniciada. Empezamos desde cero.');
+  }
+  $('#restartButton').addEventListener('click',()=>$('#restartDialog').showModal());
+  $('#confirmRestartButton').addEventListener('click',restartSession);
   $('#prevButton').addEventListener('click',()=>next(-1));$('#nextButton').addEventListener('click',()=>next(1));
   $('#outlineButton').addEventListener('click',()=>$('#outlineDialog').showModal());$('#notesButton').addEventListener('click',()=>$('#notesDialog').showModal());$('#sourcesButton').addEventListener('click',()=>$('#sourcesDialog').showModal());
   document.querySelectorAll('[data-close-dialog]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog').close()));
@@ -343,5 +351,5 @@
   }
 
   buildOutline();render();updateTimer();setInterval(updateTimer,1000);
-  window.S9App={slides,games,managuaSevenPm,managuaParts};
+  window.S9App={slides,games,managuaSevenPm,managuaParts,restartSession};
 })();

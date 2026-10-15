@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#14213d">
+  <meta name="theme-color" content="#172554">
   <meta name="description" content="Presentación interactiva de Estrategia Empresarial, sesión 9: evaluación externa y análisis competitivo.">
   <title>Estrategia Empresarial · S9</title>
-  <link rel="stylesheet" href="styles.css?v=20261015-3">
+  <link rel="stylesheet" href="styles.css?v=20261015-7">
+  <link rel="stylesheet" href="theme.css?v=20261015-7">
 </head>
 <body>
   <div class="app-shell">
@@ -15,6 +16,7 @@
       <div class="top-actions">
         <span class="unit-label">UNIDAD IV</span>
         <div id="breakTimer" class="break-timer" aria-live="polite"><span class="timer-dot"></span><span id="timerLabel">Pausa de clase</span><strong id="timerValue">--:--</strong></div>
+        <button id="restartButton" class="restart-button" type="button" aria-label="Reiniciar sesión" title="Reiniciar sesión"><span aria-hidden="true">↻</span><b>Reiniciar</b></button>
         <button id="outlineButton" class="icon-button" type="button" aria-label="Abrir índice" title="Índice">☷</button>
         <button id="notesButton" class="icon-button" type="button" aria-label="Mostrar notas" title="Notas del docente">▤</button>
         <button id="sourcesButton" class="icon-button" type="button" aria-label="Mostrar fuentes" title="Fuentes">ⓘ</button>
@@ -36,8 +38,9 @@
   <dialog id="outlineDialog" class="drawer" aria-labelledby="outlineTitle"><div class="dialog-head"><div><p class="eyebrow">RECORRIDO</p><h2 id="outlineTitle">Índice de la sesión</h2></div><button class="icon-button" data-close-dialog aria-label="Cerrar">×</button></div><nav id="outlineList" class="outline-list"></nav></dialog>
   <dialog id="notesDialog" class="notes-dialog" aria-labelledby="notesTitle"><div class="dialog-head"><div><p class="eyebrow">APOYO DOCENTE</p><h2 id="notesTitle">Notas para facilitar</h2></div><button class="icon-button" data-close-dialog aria-label="Cerrar">×</button></div><div id="notesContent" class="notes-content"></div></dialog>
   <dialog id="sourcesDialog" class="notes-dialog" aria-labelledby="sourcesTitle"><div class="dialog-head"><div><p class="eyebrow">REFERENCIAS</p><h2 id="sourcesTitle">Fuentes de la sesión</h2></div><button class="icon-button" data-close-dialog aria-label="Cerrar">×</button></div><div class="notes-content"><ul><li>Material principal: presentación de la Sesión 9, “Evaluación externa y análisis competitivo”, ADM0406, Grupo 12, Universidad Americana, 15 de octubre de 2026.</li><li>Sílabo de Estrategia Empresarial, II semestre 2026, semana 9.</li><li>Porter, M. E. (2008). “The Five Competitive Forces That Shape Strategy”. <a href="https://hbr.org/2008/01/the-five-competitive-forces-that-shape-strategy" target="_blank" rel="noopener noreferrer">Harvard Business Review</a>.</li><li>Kennedy, R. (2020). <i>Strategic Management</i>, capítulo 3, “Evaluating the External Environment”. <a href="https://pressbooks.lib.vt.edu/strategicmanagement/part/chapter-3-evaluating-the-external-environment/" target="_blank" rel="noopener noreferrer">Virginia Tech Publishing</a>.</li><li>D’Alessio Ipinza, F. (2009). <i>El proceso estratégico: un enfoque de gerencia</i>. Pearson–Prentice Hall.</li></ul><p style="margin-top:18px">Los casos y señales etiquetados como didácticos son ficticios y no describen resultados reales de mercado.</p></div></dialog>
+  <dialog id="restartDialog" class="restart-dialog" aria-labelledby="restartTitle"><div class="restart-symbol" aria-hidden="true">↻</div><p class="eyebrow">NUEVO INICIO</p><h2 id="restartTitle">¿Reiniciar la sesión?</h2><p>Volverás a la primera diapositiva y se borrarán las respuestas, avances de juegos y selecciones de esta sesión en este navegador. El contador seguirá la hora de pausa programada para las 7:00 p. m. en Managua.</p><div class="restart-actions"><button class="button" data-close-dialog type="button">Seguir donde estoy</button><button id="confirmRestartButton" class="button restart-confirm" type="button">Sí, reiniciar</button></div></dialog>
   <dialog id="breakDialog" class="break-dialog" aria-labelledby="breakTitle"><div class="break-symbol" aria-hidden="true">☕</div><p class="eyebrow">PAUSA DE CLASE</p><h2 id="breakTitle">Son las 7:00 p. m.</h2><p>Hagamos una pausa breve. Al cerrar este aviso, la sesión continúa en el mismo punto.</p><button id="dismissBreak" class="button primary" type="button">Continuar la sesión</button></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20261015-3" defer></script>
+  <script src="app.js?v=20261015-7" defer></script>
 </body>
 </html>
